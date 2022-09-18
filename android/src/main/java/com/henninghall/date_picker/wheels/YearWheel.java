@@ -74,5 +74,21 @@ public class YearWheel extends Wheel
         return LocaleUtils.getYear(state.getLocaleLanguageTag());
     }
 
-}
+    @Override
+    protected String[] getDisplayValues(ArrayList<String> values){
+        ArrayList<String> displayValues = new ArrayList<>();
+        if (state.getLocaleLanguageTag().equals("th")) {
+            for (String value : values) {
+                int year = Integer.parseInt(value) + 543;
+                displayValues.add(String.valueOf(year));
+            }
+        } else {
+            for (String value : values) {
+                int year = Integer.parseInt(value);
+                displayValues.add(String.valueOf(year));
+            }
+        }
+        return displayValues.toArray(new String[0]);
+    }
 
+}

@@ -62,7 +62,7 @@ public class Wheels {
         changeAmPmWhenPassingMidnightOrNoon();
     }
 
-    private Picker getPickerWithId(final int id){
+    private Picker getPickerWithId(int id){
         return (Picker) rootView.findViewById(id);
     }
 
@@ -123,8 +123,14 @@ public class Wheels {
             Wheel w = wheels.get(i);
             if (w instanceof DateWheel) {
                 sb.append(w.getPastValue(daysToSubtract));
+            } else {
+                if (w.getClass().getName().contains("YearWheel")) {
+                    int yearInt = Integer.parseInt(w.getValue());
+                    sb.append(yearInt);
+                } else {
+                    sb.append(w.getValue());
+                }
             }
-            else sb.append(w.getValue());
         }
         return sb.toString();
     }
@@ -136,7 +142,7 @@ public class Wheels {
         return dayWheel.getValue();
     }
 
-    String getTimeString(){
+    private String getTimeString(){
         return hourWheel.getValue()
                 + " " + minutesWheel.getValue()
                 + ampmWheel.getValue();
@@ -153,7 +159,13 @@ public class Wheels {
     String getDisplayValue() {
         StringBuilder sb = new StringBuilder();
         for (Wheel wheel: getOrderedVisibleWheels()) {
-            sb.append(wheel.getDisplayValue());
+            if (wheel.getClass().getName().contains("YearWheel")) {
+                int yearInt = Integer.parseInt(wheel.getDisplayValue());
+                yearInt = yearInt - 543;
+                sb.append(yearInt);
+            } else {
+                sb.append(wheel.getDisplayValue());
+            }
         }
         return sb.toString();
     }

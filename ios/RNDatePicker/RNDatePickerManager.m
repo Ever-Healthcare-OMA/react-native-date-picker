@@ -37,7 +37,7 @@ RCT_EXPORT_METHOD(removeListeners : (NSInteger)count) {
 
 - (UIView *)view
 {
-  return [DatePicker new];
+   return [[DatePicker alloc] init];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(date, NSDate)
@@ -53,6 +53,11 @@ RCT_REMAP_VIEW_PROPERTY(timeZoneOffsetInMinutes, timeZone, NSTimeZone)
 RCT_CUSTOM_VIEW_PROPERTY(textColor, NSString, DatePicker)
 {
     [view setTextColorProp:[RCTConvert NSString:json]];
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(calendarMode, NSString,DatePicker)
+{
+    [view setCalendarMode:[RCTConvert NSString:json]];
 }
 
 RCT_EXPORT_METHOD(openPicker:(NSDictionary *) props
