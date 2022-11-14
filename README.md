@@ -1,9 +1,9 @@
-# React Native Date Picker [![npm](https://img.shields.io/npm/v/react-native-date-picker.svg)](https://www.npmjs.com/package/react-native-date-picker) [![Build status](https://img.shields.io/github/workflow/status/henninghall/react-native-date-picker/Android:%20build%20&%20test?label=tests)](https://github.com/henninghall/react-native-date-picker/actions) [![npm](https://img.shields.io/npm/dm/react-native-date-picker.svg)](https://www.npmjs.com/package/react-native-date-picker)
+# React Native Date Picker [![npm](https://img.shields.io/npm/v/react-native-date-picker.svg)](https://www.npmjs.com/package/react-native-date-picker) [![Build status](https://img.shields.io/github/workflow/status/henninghall/react-native-date-picker/Build%20%26%20Test?label=tests)](https://github.com/henninghall/react-native-date-picker/actions) [![npm](https://img.shields.io/npm/dm/react-native-date-picker.svg)](https://www.npmjs.com/package/react-native-date-picker)
 
 This is a React Native Date Picker with following main features:
 
 📱&nbsp; Supports iOS, Android and Expo<br>
-🕑&nbsp; 3 different modes: Time, Date, DateTime <br>
+🕑&nbsp; 3 different modes: Time, Date, DateTime<br>
 🌍&nbsp; Various languages<br>
 🎨&nbsp; Customizable<br>
 🖼&nbsp; Modal or Inlined<br>
@@ -45,9 +45,12 @@ The second option is to use the inlined picker. Place it in a View or a custom m
 - If using React Native 0.64, 0.64.2 or later must be used.
 - If using Expo, SDK 42 or later must be used. If using Expo SDK 44, 44.0.4 or later must be used.
 
-## Installation
+## Expo
 
-If you're using expo, follow <a href="#using-expo">these steps instead.</a>
+- ✅ You can use this library with [Development Builds](https://docs.expo.dev/development/introduction/). No config plugin is required.
+- ❌ This library can't be used in the "Expo Go" app because it [requires custom native code](https://docs.expo.dev/workflow/customizing/).
+
+## Installation
 
 1. Download package with npm or yarn
 
@@ -73,33 +76,6 @@ npx react-native run-ios
 ```
 
 If you're having troubles after following these steps, there might be a <a href="https://github.com/henninghall/react-native-date-picker/#user-content-linking">linking issue</a>.
-
-## Using Expo
-
-<a href="https://expo.dev/">Expo</a> is supported by creating <a href="https://docs.expo.dev/clients/introduction/">a custom client</a>.
-
-1. Create the custom client:
-
-```
-expo install react-native-date-picker expo-dev-client
-```
-
-2. Build the app
-
-Locally
-
-```
-expo run:ios
-expo run:android
-```
-
-Or in the cloud
-
-```
-eas build -p all --profile development
-```
-
-If you're having troubles, read the <a href="https://expo.canny.io/feature-requests/p/react-native-date-picker">pinned comment here. </a>
 
 ## Example 1: Modal
 
@@ -150,7 +126,7 @@ export default () => {
 | Prop                      | Description                                                                                                                                                                                                                                                                                                           | Screenshots iOS                                                                                                                                                                                                                                                | Screenshot Android                                                                                                                                                                                                                                                                                 |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `date`                    | The currently selected date.                                                                                                                                                                                                                                                                                          |
-| `onDateChange`            | Date change handler                                                                                                                                                                                                                                                                                                   |
+| `onDateChange`            | Date change handler ( Inline only )                                                                                                                                                                                                                                                                                                  |
 | `fadeToColor`             | Android picker is fading towards this background color. {color, 'none'}                                                                                                                                                                                                                                               |
 | `maximumDate`             | Maximum selectable date. <br/> Example: `new Date("2021-12-31")`                                                                                                                                                                                                                                                      |
 | `minimumDate`             | Minimum selectable date. <br/> Example: `new Date("2021-01-01")`                                                                                                                                                                                                                                                      |
@@ -173,7 +149,7 @@ export default () => {
 
 ## Additional android styling
 
-There are som additional styling possibilities for the "androidNative" picker variant.
+There are some additional styling possibilities for the "androidNative" picker variant.
 
 ### Divider color
 
